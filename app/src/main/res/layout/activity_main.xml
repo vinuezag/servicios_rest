@@ -12,30 +12,44 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="PUT"
-        tools:layout_editor_absoluteX="164dp"
-        tools:layout_editor_absoluteY="194dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.225" />
 
     <Button
         android:id="@+id/btnPost"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="POST"
-        tools:layout_editor_absoluteX="168dp"
-        tools:layout_editor_absoluteY="317dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.377" />
 
     <Button
         android:id="@+id/btnAll"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="ALL"
-        tools:layout_editor_absoluteX="171dp"
-        tools:layout_editor_absoluteY="430dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.518" />
 
     <Button
         android:id="@+id/btnDelete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="248dp"
         android:text="DELETE"
-        tools:layout_editor_absoluteX="173dp"
-        tools:layout_editor_absoluteY="542dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
