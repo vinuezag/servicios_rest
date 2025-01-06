@@ -57,7 +57,7 @@ public class put extends AppCompatActivity {
 
     private void buscarRegistro() {
         String cedula = txtCedula.getText().toString().trim();
-        String url = "http://192.168.0.107:3000/buscar-registro/" + cedula;
+        String url = Config.getBaseUrl()+"/buscar-registro/" + cedula;
 
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null,
@@ -86,7 +86,7 @@ public class put extends AppCompatActivity {
     private void actualizarCorreo() {
         String cedula = txtCedula.getText().toString().trim();
         String nuevoCorreo = txtNuevoCorreo.getText().toString().trim();
-        String url = "http://192.168.0.107:3000/actualizar-correo/" + cedula;
+        String url = Config.getBaseUrl() + "/actualizar-correo/" + cedula;
 
         if (nuevoCorreo.isEmpty()) {
             Toast.makeText(this, "Por favor ingrese el nuevo correo", Toast.LENGTH_SHORT).show();
@@ -117,10 +117,23 @@ public class put extends AppCompatActivity {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(put.this, "Error al actualizar el correo", Toast.LENGTH_SHORT).show();
+                        // Leer el error detallado desde la respuesta JSON del servidor
+                        String errorMessage = "Error desconocido";
+                        if (error.networkResponse != null && error.networkResponse.data != null) {
+                            try {
+                                // Convertir la respuesta de error a un objeto JSON
+                                String jsonError = new String(error.networkResponse.data, "UTF-8");
+                                JSONObject errorJson = new JSONObject(jsonError);
+                                errorMessage = errorJson.optString("mensaje", "Error al actualizar el correo");
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
+                        }
+                        Toast.makeText(put.this, errorMessage, Toast.LENGTH_SHORT).show();
                     }
                 });
 
         requestQueue.add(jsonObjectRequest);
     }
+
 }

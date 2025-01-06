@@ -24,7 +24,6 @@ public class MainActivity extends AppCompatActivity {
 
         btnPost = findViewById(R.id.btnPost);
         btnPut = findViewById(R.id.btnPut);
-        btnAll = findViewById(R.id.btnAll);
         btnDelete = findViewById(R.id.btnDelete);
 
         View.OnClickListener listener = new View.OnClickListener() {
@@ -34,8 +33,6 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(new Intent(MainActivity.this, post.class));
                 } else if (v.getId() == R.id.btnPut) {
                     startActivity(new Intent(MainActivity.this, put.class));
-                } else if (v.getId() == R.id.btnAll) {
-                    startActivity(new Intent(MainActivity.this, all.class));
                 } else if (v.getId() == R.id.btnDelete) {
                     startActivity(new Intent(MainActivity.this, delete.class));
                 }
@@ -45,7 +42,6 @@ public class MainActivity extends AppCompatActivity {
 
         btnPost.setOnClickListener(listener);
         btnPut.setOnClickListener(listener);
-        btnAll.setOnClickListener(listener);
         btnDelete.setOnClickListener(listener);
 
     }

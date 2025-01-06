@@ -1,7 +1,6 @@
 package com.vfe.serviciosrest;
 
 import android.os.Bundle;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -17,11 +16,6 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import org.json.JSONException;
 import org.json.JSONObject;
-import androidx.activity.EdgeToEdge;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 public class post extends AppCompatActivity {
 
@@ -79,8 +73,8 @@ public class post extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        // Crear la solicitud POST http://10.10.29.68:3000/guardar-json
-        String url = "http://192.168.0.107:3000/guardar-json";
+        // Crear la solicitud POST
+        String url = Config.getBaseUrl() + "/guardar-json";
 
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
@@ -90,13 +84,41 @@ public class post extends AppCompatActivity {
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
-                        Toast.makeText(post.this, "Datos enviados exitosamente", Toast.LENGTH_SHORT).show();
+                        try {
+                            // Procesar la respuesta del servidor
+                            String mensaje = response.getString("mensaje");
+                            if (response.has("camposInvalidos")) {
+                                // En caso de campos inválidos, mostrar los detalles
+                                String camposInvalidos = response.getJSONArray("camposInvalidos").toString();
+                                Toast.makeText(post.this, "Campos inválidos: " + camposInvalidos, Toast.LENGTH_LONG).show();
+                            } else if (response.has("mensaje") && mensaje.equals("JSON guardado exitosamente")) {
+                                // Si el JSON fue guardado exitosamente
+                                Toast.makeText(post.this, mensaje, Toast.LENGTH_SHORT).show();
+                            } else {
+                                Toast.makeText(post.this, "Respuesta no esperada: " + response.toString(), Toast.LENGTH_LONG).show();
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                            Toast.makeText(post.this, "Error al procesar la respuesta", Toast.LENGTH_SHORT).show();
+                        }
                     }
                 },
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(post.this, "Error al enviar datos: " + error.getMessage(), Toast.LENGTH_SHORT).show();
+                        // Manejo de error de red o servidor
+                        String errorMessage = "Error al enviar datos: " + error.getMessage();
+                        if (error.networkResponse != null && error.networkResponse.data != null) {
+                            try {
+                                JSONObject errorResponse = new JSONObject(new String(error.networkResponse.data));
+                                if (errorResponse.has("mensaje")) {
+                                    errorMessage = errorResponse.getString("mensaje");
+                                }
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                        Toast.makeText(post.this, errorMessage, Toast.LENGTH_LONG).show();
                     }
                 }
         );
