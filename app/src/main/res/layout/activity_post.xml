@@ -14,10 +14,9 @@
         android:text="Nombre Completo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.396"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.233" />
+        app:layout_constraintVertical_bias="0.246" />
 
     <TextView
         android:id="@+id/uno"
@@ -26,7 +25,6 @@
         android:text="Cedula"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.396"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.09" />
@@ -38,24 +36,25 @@
         android:text="Correo Electrónico"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.396"
+        app:layout_constraintHorizontal_bias="0.444"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.369" />
+        app:layout_constraintVertical_bias="0.417" />
 
     <EditText
         android:id="@+id/txtCedula"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="330dp"
+        android:layout_height="43dp"
         android:ems="10"
+        android:hint="Ingrese su numero de Identificación"
         android:inputType="text"
-        android:text="Cedula"
+        android:text=""
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.15" />
+        app:layout_constraintVertical_bias="0.164" />
 
     <TextView
         android:id="@+id/cinco"
@@ -64,38 +63,37 @@
         android:text="Zona o sección"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.396"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.666" />
+        app:layout_constraintVertical_bias="0.722" />
 
     <EditText
         android:id="@+id/txtCorreo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="249dp"
+        android:layout_height="47dp"
         android:ems="10"
-        android:inputType="text"
-        android:text="Correo Electronico"
+        android:hint="Ingrese su correo electrónico"
+        android:inputType="textEmailAddress"
+        android:text=""
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.438" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/txtNombre"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="322dp"
+        android:layout_height="38dp"
         android:ems="10"
+        android:hint="Ingrese su Nombre"
         android:inputType="text"
-        android:text="Nombre"
+        android:text=""
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.393"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.297" />
+        app:layout_constraintVertical_bias="0.326" />
 
     <TextView
         android:id="@+id/cuatro"
@@ -104,10 +102,10 @@
         android:text="Cantidad de Boletos"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.396"
+        app:layout_constraintHorizontal_bias="0.444"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.515" />
+        app:layout_constraintVertical_bias="0.589" />
 
     <Button
         android:id="@+id/btnGuardar"
@@ -122,24 +120,24 @@
 
     <Spinner
         android:id="@+id/cantBoletos"
-        android:layout_width="203dp"
-        android:layout_height="30dp"
+        android:layout_width="206dp"
+        android:layout_height="37dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.466"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.586" />
+        app:layout_constraintVertical_bias="0.657" />
 
     <Spinner
         android:id="@+id/zona"
-        android:layout_width="203dp"
-        android:layout_height="30dp"
+        android:layout_width="199dp"
+        android:layout_height="46dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.466"
+        app:layout_constraintHorizontal_bias="0.476"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.737" />
+        app:layout_constraintVertical_bias="0.801" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
